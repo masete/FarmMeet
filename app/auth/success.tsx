@@ -7,7 +7,7 @@ import { router } from 'expo-router';
 type RootStackParamList = {
   SuccessPage: undefined; // Correctly using 'SuccessPage'
   SetupProfile: undefined;
-  Home: undefined;
+  Dashboard: undefined;
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, 'SuccessPage'>;
@@ -33,7 +33,8 @@ export default function SuccessPage({ navigation }: Props) {
 
       <TouchableOpacity 
         style={styles.skipButton} 
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => router.push('/dashboard/dashboard')}
+        // onPress={() => navigation.navigate('/dashboard/dashboard')}
       >
         <Text style={styles.skipButtonText}>Skip</Text>
       </TouchableOpacity>
