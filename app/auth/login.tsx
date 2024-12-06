@@ -43,7 +43,7 @@ export default function SignIn() {
         await SecureStore.setItemAsync('accessToken', data.access);
         await SecureStore.setItemAsync('refreshToken', data.refresh);
   
-        Alert.alert('Success', 'You are now signed in.');
+        // Alert.alert('Success', 'You are now signed in.');
         router.push('/auth/success'); // Navigate to the next screen
       } else {
         Alert.alert('Error', data.detail || 'Invalid credentials.');
@@ -56,44 +56,6 @@ export default function SignIn() {
   };
 
   const router = useRouter();
-
-  // const handleSignIn = async () => {
-  //   if (!phoneNumber || !password) {
-  //     Alert.alert('Error', 'Please enter your phone number and password.');
-  //     return;
-  //   }
-
-  //   setLoading(true);
-
-  //   try {
-  //     const response = await fetch('https://farm-meet.onrender.com/login/', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'accept': 'application/json',
-  //         'X-CSRF-TOKEN': 'h3eOpzuD463toQaw4JV0JsvkRVEKXmhtBodbeHOa7jcovg1bsucFMyRzIfXaD9rQ', // Ensure this token is valid
-  //       },
-  //       body: JSON.stringify({
-  //         phone_number: phoneNumber,
-  //         password: password,
-  //       }),
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (response.ok) {
-  //       // Redirect to the profile setup page
-  //       router.push('/auth/success');
-  //     } else {
-  //       // Show error message from the backend or a generic one
-  //       Alert.alert('Error', data.detail || 'Phone number or password is incorrect.');
-  //     }
-  //   } catch (error) {
-  //     Alert.alert('Error', 'Something went wrong. Please try again later.');
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   return (
     <View style={styles.container}>

@@ -350,25 +350,27 @@ export default function Register() {
           value={phoneNumber}
           onChangeText={setPhoneNumber}
         />
-        <View style={styles.passwordContainer}>
-          <TextInput
-            style={[styles.input, { flex: 1 }]}
-            placeholder="Enter Password"
-            secureTextEntry={!isPasswordVisible}
-            value={password}
-            onChangeText={setPassword}
-          />
-          <TouchableOpacity
-            onPress={() => setIsPasswordVisible(!isPasswordVisible)}
-            style={styles.eyeIcon}
-          >
-            <Ionicons
-              name={isPasswordVisible ? 'eye' : 'eye-off'}
-              size={24}
-              color="gray"
+
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.inputWithIcon}
+              placeholder="Enter Password"
+              secureTextEntry={!isPasswordVisible}
+              value={password}
+              onChangeText={setPassword}
             />
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+              onPress={() => setIsPasswordVisible(!isPasswordVisible)}
+              style={styles.eyeIconInside}
+            >
+              <Ionicons
+                name={isPasswordVisible ? 'eye' : 'eye-off'}
+                size={24}
+                color="gray"
+              />
+            </TouchableOpacity>
+          </View>
+
 
         {/* Terms and Conditions */}
         <View style={styles.termsContainer}>
@@ -465,6 +467,26 @@ const styles = StyleSheet.create({
   eyeIcon: {
     paddingHorizontal: 10,
   },
+
+  inputContainer: {
+    position: 'relative',
+    marginBottom: 15,
+  },
+  inputWithIcon: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 10,
+    padding: 15,
+    paddingRight: 50, // Add padding to prevent overlap with the icon
+    color: 'black',
+  },
+  eyeIconInside: {
+    position: 'absolute',
+    right: 15, // Aligns the icon to the right within the input
+    top: '50%',
+    transform: [{ translateY: -12 }], // Centers the icon vertically
+  },
+  
   termsContainer: {
     marginBottom: 15,
   },
@@ -478,7 +500,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 25,
     alignItems: 'center',
-    marginBottom: 15,
+    marginBottom: 15, 
   },
   signupButtonText: {
     color: 'white',
